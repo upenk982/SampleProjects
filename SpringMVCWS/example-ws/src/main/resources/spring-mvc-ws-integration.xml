@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:p="http://www.springframework.org/schema/p" 
+				xmlns:sws="http://www.springframework.org/schema/web-services"
+       			xsi:schemaLocation=
+       				"http://www.springframework.org/schema/beans 
+       				http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       	 			http://www.springframework.org/schema/web-services
+       				http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
+
+    <description>
+        The beans defined in this context are automatically
+        detected by Spring-WS, similar to the way Controllers are picked up in Spring Web MVC.
+    </description>
+    
+	<sws:annotation-driven />
+	 
+	 <!-- Uses the latest feature from 2.0.0 RC2. 
+	 	Enables interceptor endpoints. See Spring WS Reference 5.5.2
+	 	Here we have an interceptor that validates XML request and a logger
+	    -->
+	 <sws:interceptors>
+	 	    <bean id="validatingInterceptor"  class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor"
+				        p:schema="classpath:subscription.xsd"
+				        p:validateRequest="true"
+				        p:validateResponse="true"/>
+
+		    <bean id="loggingInterceptor" class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
+	 </sws:interceptors>
+
+	<!-- Uses the latest feature from 2.0.0 RC2. 
+	 	Enables publishing of wsdl. See Spring WS Reference 3.7
+	 	For dynamic location transformation to work, a special parameter must be added to the web.xml.
+	 	The locationUri here has no use when integrated with Spring MVC because 
+	 	it has been overriden by the SimpleUrlHandlerMapping -->
+    <sws:dynamic-wsdl id="subscription"                                                           
+	    portTypeName="SubscriptionPort"                                                         
+	    locationUri="/euc-ws/ws"                                                       
+	    targetNamespace="http://euc.com/hr/schemas">                               
+	  <sws:xsd location="classpath:subscription.xsd"/>                                                  
+	</sws:dynamic-wsdl>
+
+	
+	<bean id="defaultMethodEndpointAdapter" class="org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter"/>
+	
+	<!-- SAAJ-specific implementation of the WebServiceMessageFactory. Wraps a SAAJ MessageFactory. 
+	This factory will use SAAJ 1.3 when found, or fall back to SAAJ 1.2 or even 1.1. -->
+	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
+	
+	<!-- Requires a message factory so we declare one -->
+	<bean class="org.springframework.ws.transport.http.WebServiceMessageReceiverHandlerAdapter"
+			p:messageFactory-ref="messageFactory"/>
+			
+	
+	<bean class="org.springframework.ws.transport.http.WsdlDefinitionHandlerAdapter"/>
+	
+	<!--  This is responsible for forwarding web service request to the correct adapters.
+	This is exactly similar to Spring MVC's DispatcherServlet -->
+	<bean id="messageDispatcher" class="org.springframework.ws.server.MessageDispatcher">
+		 	<property name="endpointAdapters">
+		 		<list>
+					<ref bean="defaultMethodEndpointAdapter"/>
+				</list>	
+			</property>
+	 </bean>
+	 
+	 
+	 <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+			<value>
+				/ws=messageDispatcher
+				/ws/subscription?wsdl=subscription
+			</value>
+		</property> 
+    </bean>
+    
+   
+   <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+   
+</beans>

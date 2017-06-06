@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="euc-ws/src/main/java"/>
+	<classpathentry kind="src" path="euc-model/src/main/java"/>
+	<classpathentry kind="src" path="euc-model/src/main/resources"/>
+	<classpathentry kind="src" path="euc-core/src/main/java"/>
+	<classpathentry kind="src" path="euc-core/src/main/resources"/>
+	<classpathentry kind="src" path="euc-ws/src/main/resources"/>
+	<classpathentry kind="src" path="example-core/src/main/java"/>
+	<classpathentry kind="src" path="example-core/src/main/resources"/>
+	<classpathentry kind="src" path="example-model/src/main/resources"/>
+	<classpathentry kind="src" path="example-ws/src/main/java"/>
+	<classpathentry kind="src" path="example-ws/src/main/resources"/>
+	<classpathentry kind="src" path="example-model/target/generated-sources/xjc"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

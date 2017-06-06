@@ -1,0 +1,128 @@
+     [copy] Copying 1 file to C:\JavaWorkspace\euc
+     [copy] Copying C:\Users\867770\AppData\Local\Temp\plexus-ant-component1014242438688228109.build.xml to C:\JavaWorkspace\euc\build-file.xml
+parsing buildfile jar:file:/c:/temp/scm/plugins/scm-wls-plugin/10.3.2.4/scm-wls-plugin-10.3.2.4.jar!/antlib.xml with URI = jar:file:/c:/temp/scm/plugins/scm-wls-plugin/10.3.2.4/scm-wls-plugin-10.3.2.4.jar!/antlib.xml from a zip file
+  [typedef] The reverseloader attribute is DEPRECATED. It will be removed
+parsing buildfile jar:file:/c:/temp/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar!/org/apache/maven/artifact/ant/antlib.xml with URI = jar:file:/c:/temp/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar!/org/apache/maven/artifact/ant/antlib.xml from a zip file
+parsing buildfile jar:file:/c:/temp/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar!/org/apache/maven/artifact/ant/antlib.xml with URI = jar:file:/c:/temp/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar!/org/apache/maven/artifact/ant/antlib.xml from a zip file
+init:maven:  duration 0 seconds
+
+deploy-property-conditions:
+Property "stagingMode" has not been set
+Property "stagingMode" has not been set
+Property "stagingMode" has not been set
+Property "useClearPassword" has not been set
+Property "usePlan" has not been set
+Property "stagingMode" has not been set
+Property "nostage" has not been set
+Property "stage" has not been set
+Property "exclusive_stage" has not been set
+Property "plan" has not been set
+Property "isLibrary" has not been set
+Property "appversion" has not been set
+Property "useAppVersion" has not been set
+Property "autoclean" has not been set
+     [echo] 
+     [echo]    [USE CLEAR PASSWORD  = ${useClearPassword}
+     [echo] 	 [USE PLAN          = ${usePlan}
+     [echo]    [STAGING MODE        = ${stagingMode}]
+     [echo]       : nostage         = ${nostage}
+     [echo]       : stage           = ${stage}
+     [echo]       : exclusive_stage = ${exclusive_stage}
+     [echo]       : plan            = ${plan}
+     [echo]       : isLibrary       = ${isLibrary}
+     [echo]       : appversion      = ${appversion} = ${useAppVersion}
+     [echo] 	  : autoclean       = ${autoclean}
+     [echo]         
+deploy-property-conditions:  duration 0 seconds
+
+deploy:
+Property "method2" has not been set
+Property "method3" has not been set
+Property "method4" has not been set
+Property "method5" has not been set
+     [echo] Deploy Methods:
+     [echo]         'true' '${method2}' '${method3}' '${method4}' '${method5}'
+     [echo] 		
+Project base dir set to: C:\JavaWorkspace\euc
+  [antcall] calling target(s) [_deployNoPlan] in build file C:\Users\867770\AppData\Local\Temp\plexus-ant-component1014242438688228109.build.xml
+parsing buildfile C:\Users\867770\AppData\Local\Temp\plexus-ant-component1014242438688228109.build.xml with URI = file:/C:/Users/867770/AppData/Local/Temp/plexus-ant-component1014242438688228109.build.xml
+Project base dir set to: C:\JavaWorkspace\euc
+Build sequence for target(s) `_deployNoPlan' is [_deployNoPlan]
+Complete build sequence is [_deployNoPlan, init:maven, deploy-property-conditions, undeploy, _deployClearNoPlanAppVersion, deploy, _undeploy, _redeployClear, _undeployClear, _deployClearWithPlan, _deploy, undeployDeploy, listapps, redeploy, _deployWithPlan, jwsc, _deployClearNoPlan, _redeploy, _deployClear, ]
+  [antcall] Entering C:\Users\867770\AppData\Local\Temp\plexus-ant-component1014242438688228109.build.xml...
+Build sequence for target(s) `_deployNoPlan' is [_deployNoPlan]
+Complete build sequence is [_deployNoPlan, init:maven, deploy-property-conditions, undeploy, _deployClearNoPlanAppVersion, deploy, _undeploy, _redeployClear, _undeployClear, _deployClearWithPlan, _deploy, undeployDeploy, listapps, redeploy, _deployWithPlan, jwsc, _deployClearNoPlan, _redeploy, _deployClear, ]
+
+_deployNoPlan:
+Property "isLibrary" has not been set
+Property "userconfigfile" has not been set
+Property "userkeyfile" has not been set
+Property "nostage" has not been set
+Property "external_stage" has not been set
+Property "stage" has not been set
+ [wldeploy] weblogic.Deployer -debug -verbose -usenonexclusivelock -noexit -name euc -source C:\JavaWorkspace\euc\target\euc -targets AdminServer -adminurl t3://localhost:7001 -userconfigfile ${userconfigfile} -userkeyfile ${userkeyfile} -deploy 
+ [wldeploy] weblogic.Deployer invoked with options:  -debug -verbose -usenonexclusivelock -noexit -name euc -source C:\JavaWorkspace\euc\target\euc -targets AdminServer -adminurl t3://localhost:7001 -userconfigfile ${userconfigfile} -userkeyfile ${userkeyfile} -deploy
+ [wldeploy] java.lang.IllegalArgumentException: The file, 'C:\JavaWorkspace\euc\target\euc', does not exist.
+ [wldeploy] 	at weblogic.deploy.api.tools.deployer.Jsr88Operation.validateSource(Jsr88Operation.java:168)
+ [wldeploy] 	at weblogic.deploy.api.tools.deployer.Jsr88Operation.validate(Jsr88Operation.java:89)
+ [wldeploy] 	at weblogic.deploy.api.tools.deployer.Deployer.runBody(Deployer.java:87)
+ [wldeploy] 	at weblogic.utils.compiler.Tool.run(Tool.java:158)
+ [wldeploy] 	at weblogic.utils.compiler.Tool.run(Tool.java:115)
+ [wldeploy] 	at weblogic.Deployer.run(Deployer.java:70)
+ [wldeploy] 	at weblogic.Deployer.mainWithExceptions(Deployer.java:62)
+ [wldeploy] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ [wldeploy] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+ [wldeploy] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ [wldeploy] 	at java.lang.reflect.Method.invoke(Method.java:606)
+ [wldeploy] 	at weblogic.ant.taskdefs.management.WLDeploy.invokeMain(WLDeploy.java:419)
+ [wldeploy] 	at weblogic.ant.taskdefs.management.WLDeploy.execute(WLDeploy.java:349)
+ [wldeploy] 	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+ [wldeploy] 	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
+ [wldeploy] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ [wldeploy] 	at java.lang.reflect.Method.invoke(Method.java:606)
+ [wldeploy] 	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+ [wldeploy] 	at org.apache.tools.ant.Task.perform(Task.java:348)
+ [wldeploy] 	at org.apache.tools.ant.Target.execute(Target.java:390)
+ [wldeploy] 	at org.apache.tools.ant.Target.performTasks(Target.java:411)
+ [wldeploy] 	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1397)
+ [wldeploy] 	at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+ [wldeploy] 	at org.apache.tools.ant.Project.executeTargets(Project.java:1249)
+ [wldeploy] 	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:442)
+ [wldeploy] 	at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+ [wldeploy] 	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:291)
+ [wldeploy] 	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
+ [wldeploy] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ [wldeploy] 	at java.lang.reflect.Method.invoke(Method.java:606)
+ [wldeploy] 	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+ [wldeploy] 	at org.apache.tools.ant.Task.perform(Task.java:348)
+ [wldeploy] 	at org.apache.tools.ant.Target.execute(Target.java:390)
+ [wldeploy] 	at org.apache.tools.ant.Target.performTasks(Target.java:411)
+ [wldeploy] 	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1397)
+ [wldeploy] 	at org.apache.tools.ant.Project.executeTarget(Project.java:1366)
+ [wldeploy] 	at org.codehaus.plexus.component.factory.ant.AntScriptInvoker.invoke(AntScriptInvoker.java:218)
+ [wldeploy] 	at org.apache.maven.script.ant.AntMojoWrapper.execute(AntMojoWrapper.java:148)
+ [wldeploy] 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+ [wldeploy] 	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+ [wldeploy] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+ [wldeploy] 	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+ [wldeploy] 	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+ [wldeploy] 	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+ [wldeploy] 	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+ [wldeploy] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ [wldeploy] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+ [wldeploy] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ [wldeploy] 	at java.lang.reflect.Method.invoke(Method.java:606)
+ [wldeploy] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+ [wldeploy] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+ [wldeploy] 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+ [wldeploy] 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+ [wldeploy] 	at org.codehaus.classworlds.Launcher.main(Launcher.java:46)
+_deployNoPlan:  duration 0 seconds
+  [antcall] Exiting C:\Users\867770\AppData\Local\Temp\plexus-ant-component1014242438688228109.build.xml.
+deploy:  duration 0 seconds
